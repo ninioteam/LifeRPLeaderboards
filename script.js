@@ -6,7 +6,7 @@ async function loadData() {
     const res = await fetch(dataUrl);
     const data = await res.json();
 
-    // 🧩 Combine by Steam64ID
+    // 🧩 Merge scammers by Steam64ID
     const merged = {};
     data.forEach(entry => {
       const id = entry.Steam64ID;
@@ -22,11 +22,12 @@ async function loadData() {
       }
     });
 
-    // 🧮 Convert to array + sort
+    // 🧮 Convert to array + sort by total worth
     const scammers = Object.values(merged).sort((a, b) => b.TotalWorth - a.TotalWorth);
 
     // 🎨 Render leaderboard
     renderLeaderboard(scammers);
+
   } catch (err) {
     leaderboardDiv.innerHTML = "<p style='color:red;'>Failed to load data.</p>";
     console.error(err);
@@ -36,11 +37,9 @@ async function loadData() {
 function renderLeaderboard(data) {
   leaderboardDiv.innerHTML = "";
   data.forEach((scammer, i) => {
-    const div = document.createElement("div");
-    div.className = "entry";
     const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
     const div = document.createElement("div");
-    div.className = "entry tooltip"; // add tooltip class
+    div.className = "entry tooltip"; // entire block has tooltip
     div.innerHTML = `
       <div class="spot">#${i + 1}</div>
       <div class="username">${latestUsername}</div>
