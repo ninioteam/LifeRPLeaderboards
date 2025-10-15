@@ -17,12 +17,12 @@ async function loadData() {
           TotalWorth: entry.AverageWorthInTime
         };
       } else {
-        merged[id].Usernames = entry.Usernames; // use latest username
+        merged[id].Usernames = entry.Usernames; // latest username
         merged[id].TotalWorth += entry.AverageWorthInTime;
       }
     });
 
-    // Convert to array + sort descending
+    // Sort descending by TotalWorth
     const scammers = Object.values(merged).sort((a, b) => b.TotalWorth - a.TotalWorth);
 
     // Render leaderboard
@@ -39,19 +39,21 @@ function renderLeaderboard(data) {
   data.forEach((scammer, i) => {
     const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
 
-    // Create entry div
-    let entryDiv = document.createElement("div");
-    entryDiv.textContent = `#${i + 1} ${latestUsername} $${scammer.TotalWorth.toLocaleString()}`;
+    // Create box div
+    const box = document.createElement("div");
+    box.className = "entry-box";
 
-    // Tooltip span
-    const tooltip = document.createElement("span");
-    tooltip.className = "tooltiptext";
-    tooltip.textContent = `UUID: ${scammer.Steam64ID}`;
+    // Add spot, username, worth, and tooltip
+    box.innerHTML = `
+      <span class="spot">#${i + 1}</span>
+      <span class="username">${latestUsername}</span>
+      <span class="worth">$${scammer.TotalWorth.toLocaleString()}</span>
+      <span class="tooltiptext">UUID: ${scammer.Steam64ID}</span>
+    `;
 
-    entryDiv.appendChild(tooltip);
-    leaderboardDiv.appendChild(entryDiv);
+    leaderboardDiv.appendChild(box);
   });
 }
 
-// Load leaderboard on page load
+// Load on page load
 loadData();
