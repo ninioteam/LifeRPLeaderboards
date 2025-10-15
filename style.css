@@ -2,23 +2,25 @@
    General Page Styling
 ========================= */
 body {
-  background-color: #0b0b0b;
-  color: #00ff77;
-  font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0b0b0b;
+  color: #00ff77;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ensure footer stays at bottom */
+  min-height: 100vh; /* ensures footer stays at bottom */
 }
 
-/* Top Bar */
+/* =========================
+   Top Bar
+========================= */
 .top-bar {
   width: 100%;
   background-color: #111;
   color: #00ff77;
   text-align: center;
-  padding: 10px 0;
+  padding: 12px 0;
   font-weight: bold;
   border-bottom: 2px solid #00ff77;
 }
@@ -34,17 +36,18 @@ body {
   text-decoration: underline;
 }
 
-/* Main content container */
+/* =========================
+   Main Content
+========================= */
 .container {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  flex-grow: 1; /* fills remaining space */
+  margin: 20px auto;
+  padding: 0 20px;
+  flex-grow: 1; /* fills space between top bar and footer */
   text-align: center;
 }
 
-/* Title */
 h1 {
   color: #00ff99;
   margin-bottom: 20px;
@@ -105,6 +108,7 @@ h1 {
   opacity: 1;
 }
 
+/* Spot / Username / Worth Colors */
 .spot {
   color: #11ff00;
   margin-right: 10px;
@@ -131,4 +135,22 @@ footer {
   color: #00ff77;
   font-size: 14px;
   background-color: #111;
+}
+
+/* =========================
+   Responsive Styling
+========================= */
+@media (max-width: 500px) {
+  .entry-box {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
+  .tooltiptext {
+    width: 160px;
+    font-size: 12px;
+    top: -35px;
+  }
 }
