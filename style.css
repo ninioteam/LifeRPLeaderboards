@@ -1,42 +1,24 @@
-/* =========================
-   General Page Styling
-========================= */
-body {
+/* Page Row - horizontal layout */
+.page-row {
+  display: flex;
+  flex-direction: row; /* horizontal alignment */
+  width: 100vw;
+  min-height: 100vh;
   background-color: #0b0b0b;
   color: #00ff77;
   font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
 }
 
-.container {
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  text-align: center;
-}
-
-h1 {
-  color: #00ff99;
-  margin-bottom: 20px;
-  font-size: 32px;
-}
-
-/* =========================
-   Top Bar
-========================= */
+/* Top Bar - left side */
 .top-bar {
-  width: 100%;
+  flex: 0 0 200px; /* fixed width */
   background-color: #111;
   color: #00ff77;
-  text-align: center;
-  padding: 10px 0;
-  font-weight: bold;
-  border-bottom: 2px solid #00ff77;
+  padding: 20px;
+  border-right: 2px solid #00ff77;
+  display: flex;
+  align-items: center;
+  writing-mode: vertical-rl; /* vertical text if desired */
 }
 
 .top-bar a {
@@ -50,9 +32,14 @@ h1 {
   text-decoration: underline;
 }
 
-/* =========================
-   Leaderboard Boxes
-========================= */
+/* Main content - center */
+.main-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Leaderboard Boxes */
 .leaderboard {
   display: flex;
   flex-direction: column;
@@ -79,9 +66,6 @@ h1 {
   transform: scale(1.02);
 }
 
-/* =========================
-   Tooltip Styling
-========================= */
 .entry-box .tooltiptext {
   visibility: hidden;
   width: 220px;
@@ -106,7 +90,6 @@ h1 {
   opacity: 1;
 }
 
-/* Spot / Username / Worth Colors */
 .spot {
   color: #11ff00;
   margin-right: 10px;
@@ -122,33 +105,34 @@ h1 {
   color: #ffcc00;
 }
 
-/* =========================
-   Footer
-========================= */
+/* Footer - right side */
 footer {
-  width: 100%;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: auto;
-  border-top: 2px solid #00ff77;
+  flex: 0 0 200px; /* fixed width */
+  background-color: #111;
+  border-left: 2px solid #00ff77;
   color: #00ff77;
-  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
 
-/* =========================
-   Responsive Styling
-========================= */
-@media (max-width: 500px) {
-  .entry-box {
+/* Responsive - stack vertically on small screens */
+@media (max-width: 900px) {
+  .page-row {
     flex-direction: column;
-    align-items: flex-start;
-    font-size: 16px;
-    padding: 12px 15px;
   }
 
-  .tooltiptext {
-    width: 160px;
-    font-size: 12px;
-    top: -35px;
+  .top-bar, footer {
+    flex: 0 0 auto;
+    border: none;
+    writing-mode: horizontal-tb;
+    padding: 10px;
+  }
+
+  .main-container {
+    flex: 1;
+    padding: 10px;
   }
 }
