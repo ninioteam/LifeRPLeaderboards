@@ -1,3 +1,38 @@
+/* =========================
+   General Page Styling
+========================= */
+body {
+  background-color: #0b0b0b;
+  color: #00ff77;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #00ff99;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+/* =========================
+   Leaderboard Boxes
+========================= */
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .entry-box {
   background-color: #151515;
   border: 2px solid #00ff77;
@@ -18,7 +53,10 @@
   transform: scale(1.02);
 }
 
-.tooltiptext {
+/* =========================
+   Tooltip Styling
+========================= */
+.entry-box .tooltiptext {
   visibility: hidden;
   width: 220px;
   background-color: #111;
@@ -40,4 +78,40 @@
 .entry-box:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+/* =========================
+   Colors for Spot / Username / Worth
+========================= */
+.spot {
+  color: #11ff00;
+  margin-right: 10px;
+}
+
+.username {
+  flex-grow: 1;
+  text-align: left;
+  color: #00ccff;
+}
+
+.worth {
+  color: #ffcc00;
+}
+
+/* =========================
+   Responsive Styling
+========================= */
+@media (max-width: 500px) {
+  .entry-box {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
+  .tooltiptext {
+    width: 160px;
+    font-size: 12px;
+    top: -35px;
+  }
 }
