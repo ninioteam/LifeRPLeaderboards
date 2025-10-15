@@ -3,9 +3,27 @@
 		"Usernames":[ "shark#1fan" ],
 		"ChangedUsername":false,
 		"Steam64ID":76561199371266045,
-		"StuffScammed":[ "Fir Voucher" ],
+		"StuffScammed":[ "Fircreek Voucher" ],
 		"AverageWorthInTime":250000,
 		"Evidence":[ "https://medal.tv/games/unturned/clips/lhQwVtIr9y6iWJ86B?invite=cr-MSxleVUsMzk1MTU3OTY5&v=45" ],
 		"ScamDate":"12/10/2025"
+	},
+	{
+		"Usernames":[ "shark#1fan" ],
+		"ChangedUsername":false,
+		"Steam64ID":76561199371266045,
+		"StuffScammed":[ "Fircreek Voucher", "Ferndale Voucher" ],
+		"AverageWorthInTime":400000,
+		"Evidence":[ "https://medal.tv/games/unturned/clips/lhtOY50DlxZ3gg45q?invite=cr-MSxaQ0IsNDMwMjc0NDY5&v=214" ],
+		"ScamDate":"11/10/2025"
+	},
+	{
+		"Usernames":[ "OxRyn", "OGCUSH" ],
+		"ChangedUsername":true,
+		"Steam64ID":76561199588267948,
+		"StuffScammed":[ "Purple Motorcycle" ],
+		"AverageWorthInTime":53000,
+		"Evidence":[ "https://drive.google.com/file/d/1miCz9rS9l6Y9WPgpvihwJw3cYiP_VDeL/view?usp=sharing" ],
+		"ScamDate":"13/10/2025"
 	}
 ]
