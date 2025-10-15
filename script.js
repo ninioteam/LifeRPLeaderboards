@@ -6,7 +6,7 @@ async function loadData() {
     const res = await fetch(dataUrl);
     const data = await res.json();
 
-    // 🧩 Merge scammers by Steam64ID
+    // Merge scammers by Steam64ID
     const merged = {};
     data.forEach(entry => {
       const id = entry.Steam64ID;
@@ -17,15 +17,15 @@ async function loadData() {
           TotalWorth: entry.AverageWorthInTime
         };
       } else {
-        merged[id].Usernames = entry.Usernames; // use latest usernames
+        merged[id].Usernames = entry.Usernames; // latest usernames
         merged[id].TotalWorth += entry.AverageWorthInTime;
       }
     });
 
-    // 🧮 Convert to array + sort by total worth
+    // Convert to array + sort by total worth descending
     const scammers = Object.values(merged).sort((a, b) => b.TotalWorth - a.TotalWorth);
 
-    // 🎨 Render leaderboard
+    // Render leaderboard
     renderLeaderboard(scammers);
 
   } catch (err) {
@@ -50,4 +50,5 @@ function renderLeaderboard(data) {
   });
 }
 
+// Load the leaderboard on page load
 loadData();
