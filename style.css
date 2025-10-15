@@ -1,24 +1,26 @@
-/* Page Row - horizontal layout */
-.page-row {
-  display: flex;
-  flex-direction: row; /* horizontal alignment */
-  width: 100vw;
-  min-height: 100vh;
+/* =========================
+   General Page Styling
+========================= */
+body {
   background-color: #0b0b0b;
   color: #00ff77;
   font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensure footer stays at bottom */
 }
 
-/* Top Bar - left side */
+/* Top Bar */
 .top-bar {
-  flex: 0 0 200px; /* fixed width */
+  width: 100%;
   background-color: #111;
   color: #00ff77;
-  padding: 20px;
-  border-right: 2px solid #00ff77;
-  display: flex;
-  align-items: center;
-  writing-mode: vertical-rl; /* vertical text if desired */
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  border-bottom: 2px solid #00ff77;
 }
 
 .top-bar a {
@@ -32,14 +34,26 @@
   text-decoration: underline;
 }
 
-/* Main content - center */
-.main-container {
-  flex: 1;
+/* Main content container */
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 20px;
-  overflow-y: auto;
+  flex-grow: 1; /* fills remaining space */
+  text-align: center;
 }
 
-/* Leaderboard Boxes */
+/* Title */
+h1 {
+  color: #00ff99;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+/* =========================
+   Leaderboard Boxes
+========================= */
 .leaderboard {
   display: flex;
   flex-direction: column;
@@ -66,6 +80,7 @@
   transform: scale(1.02);
 }
 
+/* Tooltip Styling */
 .entry-box .tooltiptext {
   visibility: hidden;
   width: 220px;
@@ -105,34 +120,15 @@
   color: #ffcc00;
 }
 
-/* Footer - right side */
+/* =========================
+   Footer
+========================= */
 footer {
-  flex: 0 0 200px; /* fixed width */
-  background-color: #111;
-  border-left: 2px solid #00ff77;
-  color: #00ff77;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  width: 100%;
   text-align: center;
-}
-
-/* Responsive - stack vertically on small screens */
-@media (max-width: 900px) {
-  .page-row {
-    flex-direction: column;
-  }
-
-  .top-bar, footer {
-    flex: 0 0 auto;
-    border: none;
-    writing-mode: horizontal-tb;
-    padding: 10px;
-  }
-
-  .main-container {
-    flex: 1;
-    padding: 10px;
-  }
+  padding: 15px 0;
+  border-top: 2px solid #00ff77;
+  color: #00ff77;
+  font-size: 14px;
+  background-color: #111;
 }
