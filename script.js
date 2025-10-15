@@ -17,7 +17,7 @@ async function loadData() {
           TotalWorth: entry.AverageWorthInTime
         };
       } else {
-        merged[id].Usernames = entry.Usernames; // latest username
+        merged[id].Usernames = entry.Usernames;
         merged[id].TotalWorth += entry.AverageWorthInTime;
       }
     });
@@ -39,11 +39,8 @@ function renderLeaderboard(data) {
   data.forEach((scammer, i) => {
     const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
 
-    // Create box div
     const box = document.createElement("div");
     box.className = "entry-box";
-
-    // Add spot, username, worth, and tooltip
     box.innerHTML = `
       <span class="spot">#${i + 1}</span>
       <span class="username">${latestUsername}</span>
@@ -51,9 +48,27 @@ function renderLeaderboard(data) {
       <span class="tooltiptext">UUID: ${scammer.Steam64ID}</span>
     `;
 
+    // Click to copy UUID
+    box.addEventListener("click", () => {
+      navigator.clipboard.writeText(scammer.Steam64ID)
+        .then(() => {
+          // Optional: show temporary confirmation
+          const tooltip = box.querySelector(".tooltiptext");
+          const originalText = tooltip.textContent;
+          tooltip.textContent = "Copied!";
+          tooltip.style.visibility = "visible";
+          tooltip.style.opacity = "1";
+          setTimeout(() => {
+            tooltip.textContent = originalText;
+            tooltip.style.visibility = "hidden";
+            tooltip.style.opacity = "0";
+          }, 1000);
+        })
+        .catch(err => console.error("Failed to copy:", err));
+    });
+
     leaderboardDiv.appendChild(box);
   });
 }
 
-// Load on page load
 loadData();
