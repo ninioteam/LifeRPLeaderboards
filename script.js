@@ -45,7 +45,7 @@ function renderLeaderboard(data) {
       <span class="spot">#${i + 1}</span>
       <span class="username">${latestUsername}</span>
       <span class="worth">$${scammer.TotalWorth.toLocaleString()}</span>
-      <span class="tooltiptext">UUID: ${scammer.Steam64ID}</span>
+      <span class="tooltiptext">Steam64: ${scammer.Steam64ID}</span>
     `;
 
     // Click to copy UUID
