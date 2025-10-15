@@ -4,7 +4,13 @@ const dataUrl = "https://raw.githubusercontent.com/ninioteam/LifeRPScammerList/r
 async function loadData() {
   try {
     const res = await fetch(dataUrl);
-    const data = await res.json();
+    const text = await res.text();
+
+    // Parse manually to keep Steam64ID as string (avoid rounding)
+    const data = JSON.parse(text, (key, value) => {
+      if (key === "Steam64ID") return String(value);
+      return value;
+    });
 
     // Merge scammers by Steam64ID
     const merged = {};
@@ -54,13 +60,12 @@ function renderLeaderboard(data) {
     box.addEventListener("click", () => {
       navigator.clipboard.writeText(scammer.Steam64ID)
         .then(() => {
-          // Temporarily change text to "Copied!" then revert to UUID
           const originalText = `Steam64: ${scammer.Steam64ID}`;
           tooltip.textContent = "Copied!";
-          tooltip.style.color = "#ffcc00"; // optional highlight
+          tooltip.style.color = "#ffcc00";
           setTimeout(() => {
             tooltip.textContent = originalText;
-            tooltip.style.color = "#00ff99"; // revert color
+            tooltip.style.color = "#00ff99";
           }, 1000);
         })
         .catch(err => console.error("Failed to copy:", err));
