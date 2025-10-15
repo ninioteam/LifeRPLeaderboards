@@ -40,7 +40,8 @@ function renderLeaderboard(data) {
     div.className = "entry";
     const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
     div.innerHTML = `
-      <div class="username">#${i + 1} — ${latestUsername}</div>
+      <div class="spot">#${i + 1}</div>
+      <div class="username">${latestUsername}</div>
       <div class="worth">$${scammer.TotalWorth.toLocaleString()}</div>
     `;
     leaderboardDiv.appendChild(div);
