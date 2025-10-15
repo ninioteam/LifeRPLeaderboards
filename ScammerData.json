@@ -25,5 +25,14 @@
 		"AverageWorthInTime":53000,
 		"Evidence":[ "https://drive.google.com/file/d/1miCz9rS9l6Y9WPgpvihwJw3cYiP_VDeL/view?usp=sharing" ],
 		"ScamDate":"13/10/2025"
+	},
+	{
+		"Usernames":[ "Hotsauce", "NotHotsauce" ],
+		"ChangedUsername":true,
+		"Steam64ID":76561199214317818,
+		"StuffScammed":[ "Unknown Items (Said Vouchers and some other stuff)" ],
+		"AverageWorthInTime":600000,
+		"Evidence":[ "https://medal.tv/games/unturned/clips/lhu4Yzt54dmfUEtdu?invite=cr-MSx4bjMsMTcxMDM1MDQ1&v=300" ],
+		"ScamDate":"11/10/2025"
 	}
 ]
