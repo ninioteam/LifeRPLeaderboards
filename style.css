@@ -1,81 +1,43 @@
-/* General Page Styling */
-body {
-  background-color: #0b0b0b;
-  color: #00ff77;
-  font-family: "Segoe UI", sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  color: #00ff99;
-  margin-bottom: 20px;
-}
-
-/* Leaderboard Styling */
-.leaderboard {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.leaderboard div {
-  padding: 10px 15px;
-  border: 1px solid #00ff77;
-  border-radius: 6px;
+.entry-box {
   background-color: #151515;
+  border: 2px solid #00ff77;
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-size: 20px;
   font-weight: bold;
-  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* required for tooltip */
+  transition: transform 0.2s, background-color 0.3s;
   cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s, transform 0.2s;
 }
 
-.leaderboard div:hover {
+.entry-box:hover {
   background-color: #1e1e1e;
   transform: scale(1.02);
 }
 
-/* Tooltip Styling */
-.leaderboard div .tooltiptext {
+.tooltiptext {
   visibility: hidden;
-  width: 200px;
+  width: 220px;
   background-color: #111;
   color: #00ff99;
   text-align: center;
   border-radius: 6px;
   padding: 6px;
   position: absolute;
-  z-index: 1;
-  top: -35px;
+  top: -40px; /* above the box */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  box-shadow: 0 0 8px #00ff99;
+  box-shadow: 0 0 8px #00ff77;
+  pointer-events: none;
+  font-size: 14px;
 }
 
-.leaderboard div:hover .tooltiptext {
+.entry-box:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-  .leaderboard div {
-    font-size: 16px;
-    padding: 8px 10px;
-  }
-  .leaderboard div .tooltiptext {
-    width: 160px;
-    font-size: 14px;
-    top: -30px;
-  }
 }
