@@ -48,20 +48,19 @@ function renderLeaderboard(data) {
       <span class="tooltiptext">Steam64: ${scammer.Steam64ID}</span>
     `;
 
-    // Click to copy UUID
+    const tooltip = box.querySelector(".tooltiptext");
+
+    // Click to copy ID
     box.addEventListener("click", () => {
       navigator.clipboard.writeText(scammer.Steam64ID)
         .then(() => {
-          // Optional: show temporary confirmation
-          const tooltip = box.querySelector(".tooltiptext");
-          const originalText = tooltip.textContent;
+          // Temporarily change text to "Copied!" then revert to UUID
+          const originalText = `Steam64: ${scammer.Steam64ID}`;
           tooltip.textContent = "Copied!";
-          tooltip.style.visibility = "visible";
-          tooltip.style.opacity = "1";
+          tooltip.style.color = "#ffcc00"; // optional highlight
           setTimeout(() => {
             tooltip.textContent = originalText;
-            tooltip.style.visibility = "hidden";
-            tooltip.style.opacity = "0";
+            tooltip.style.color = "#00ff99"; // revert color
           }, 1000);
         })
         .catch(err => console.error("Failed to copy:", err));
