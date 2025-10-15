@@ -1,1 +1,71 @@
+body {
+  background-color: #0b0b0b;
+  color: #00ff77;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #00ff99;
+  margin-bottom: 10px;
+}
+
+.note {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.entry {
+  width: 90%;
+  background-color: #141414;
+  border: 1px solid #00ff77;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.entry:hover {
+  transform: scale(1.02);
+  border-color: #11ff00;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.worth {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.evidence a {
+  color: #00aaff;
+  text-decoration: none;
+}
+.evidence a:hover {
+  text-decoration: underline;
+}
 
