@@ -82,3 +82,11 @@ h1 {
   visibility: visible;
   opacity: 1;
 }
+
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.9rem;
+}
