@@ -17,12 +17,12 @@ async function loadData() {
           TotalWorth: entry.AverageWorthInTime
         };
       } else {
-        merged[id].Usernames = entry.Usernames; // latest username
+        merged[id].Usernames = entry.Usernames; // use latest username
         merged[id].TotalWorth += entry.AverageWorthInTime;
       }
     });
 
-    // Convert to array + sort by total worth descending
+    // Convert to array + sort descending
     const scammers = Object.values(merged).sort((a, b) => b.TotalWorth - a.TotalWorth);
 
     // Render leaderboard
@@ -38,11 +38,20 @@ function renderLeaderboard(data) {
   leaderboardDiv.innerHTML = "";
   data.forEach((scammer, i) => {
     const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
-    const line = document.createElement("div");
-    line.textContent = `#${i + 1} ${latestUsername} $${scammer.TotalWorth.toLocaleString()}`;
-    leaderboardDiv.appendChild(line);
+
+    // Create entry div
+    let entryDiv = document.createElement("div");
+    entryDiv.textContent = `#${i + 1} ${latestUsername} $${scammer.TotalWorth.toLocaleString()}`;
+
+    // Tooltip span
+    const tooltip = document.createElement("span");
+    tooltip.className = "tooltiptext";
+    tooltip.textContent = `UUID: ${scammer.Steam64ID}`;
+
+    entryDiv.appendChild(tooltip);
+    leaderboardDiv.appendChild(entryDiv);
   });
 }
 
-// Load on page load
+// Load leaderboard on page load
 loadData();
