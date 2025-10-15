@@ -1,5 +1,11 @@
 [
 	{
-		"Usernames":[ "shark#1fan" ]
+		"Usernames":[ "shark#1fan" ],
+		"ChangedUsername":false,
+		"Steam64ID":76561199371266045,
+		"StuffScammed":[ "Fir Voucher" ],
+		"AverageWorthInTime":250000,
+		"Evidence":[ "https://medal.tv/games/unturned/clips/lhQwVtIr9y6iWJ86B?invite=cr-MSxleVUsMzk1MTU3OTY5&v=45" ],
+		"ScamDate":"12/10/2025"
 	}
 ]
