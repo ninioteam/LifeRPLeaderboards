@@ -1,38 +1,16 @@
 const leaderboardDiv = document.getElementById("leaderboard");
-const dataUrl = "https://raw.githubusercontent.com/ninioteam/LifeRPScammerList/refs/heads/main/ScammerData.json";
+const dataUrl = "https://raw.githubusercontent.com/ninioteam/LifeRPScammerList/refs/heads/main/scammer/ScammerData.json";
 
 async function loadData() {
   try {
     const res = await fetch(dataUrl);
     const text = await res.text();
+    const data = JSON.parse(text);
 
-    // Parse manually to keep Steam64ID as string (avoid rounding)
-    const data = JSON.parse(text, (key, value) => {
-      if (key === "Steam64ID") return String(value);
-      return value;
-    });
+    // Sort by Spot (optional)
+    const sorted = data.sort((a, b) => a.Spot - b.Spot);
 
-    // Merge scammers by Steam64ID
-    const merged = {};
-    data.forEach(entry => {
-      const id = entry.Steam64ID;
-      if (!merged[id]) {
-        merged[id] = {
-          Steam64ID: id,
-          Usernames: entry.Usernames,
-          TotalWorth: entry.AverageWorthInTime
-        };
-      } else {
-        merged[id].Usernames = entry.Usernames;
-        merged[id].TotalWorth += entry.AverageWorthInTime;
-      }
-    });
-
-    // Sort descending by TotalWorth
-    const scammers = Object.values(merged).sort((a, b) => b.TotalWorth - a.TotalWorth);
-
-    // Render leaderboard
-    renderLeaderboard(scammers);
+    renderLeaderboardList(sorted);
 
   } catch (err) {
     leaderboardDiv.innerHTML = "<p style='color:red;'>Failed to load data.</p>";
@@ -40,35 +18,23 @@ async function loadData() {
   }
 }
 
-function renderLeaderboard(data) {
+function renderLeaderboardList(list) {
   leaderboardDiv.innerHTML = "";
-  data.forEach((scammer, i) => {
-    const latestUsername = scammer.Usernames[scammer.Usernames.length - 1];
 
+  list.forEach(item => {
     const box = document.createElement("div");
     box.className = "entry-box";
     box.innerHTML = `
-      <span class="spot">#${i + 1}</span>
-      <span class="username">${latestUsername}</span>
-      <span class="worth">$${scammer.TotalWorth.toLocaleString()}</span>
-      <span class="tooltiptext">Steam64: ${scammer.Steam64ID}</span>
+      <span class="leaderboard-name">${item.Name}</span>
     `;
 
-    const tooltip = box.querySelector(".tooltiptext");
-
-    // Click to copy ID
+    // ✅ Open the leaderboard link from JSON
     box.addEventListener("click", () => {
-      navigator.clipboard.writeText(scammer.Steam64ID)
-        .then(() => {
-          const originalText = `Steam64: ${scammer.Steam64ID}`;
-          tooltip.textContent = "Copied!";
-          tooltip.style.color = "#ffcc00";
-          setTimeout(() => {
-            tooltip.textContent = originalText;
-            tooltip.style.color = "#00ff99";
-          }, 1000);
-        })
-        .catch(err => console.error("Failed to copy:", err));
+      if (item.Link) {
+        window.open(item.Link, "_blank", "noopener");
+      } else {
+        console.warn("No link provided for:", item.Name);
+      }
     });
 
     leaderboardDiv.appendChild(box);
