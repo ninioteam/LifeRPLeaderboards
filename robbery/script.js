@@ -50,8 +50,8 @@ function renderLeaderboard(data) {
     box.innerHTML = `
       <span class="spot">#${i + 1}</span>
       <span class="username">${latestUsername}</span>
-      <span class="total">$${scammer.TotalRobbed.toLocaleString()}</span>
-      <span class="tooltiptext">Steam64: ${scammer.Steam64ID}</span>
+      <span class="total">$${robber.TotalRobbed.toLocaleString()}</span>
+      <span class="tooltiptext">Steam64: ${robber.Steam64ID}</span>
     `;
 
     const tooltip = box.querySelector(".tooltiptext");
