@@ -1,12 +1,12 @@
 [
   {
     "Name":"Robberies",
-    "Link":"https://ninioteam.github.io/leaderboard/robberey",
+    "Link":"https://ninioteam.github.io/LifeRPLeaderboards/robbery",
     "Spot":1
   },
   {
     "Name":"Scammers",
-    "Link":"https://ninioteam.github.io/leaderboard/scammer",
+    "Link":"https://ninioteam.github.io/LifeRPLeaderboards/scammer",
     "Spot":2
   }
 ]
