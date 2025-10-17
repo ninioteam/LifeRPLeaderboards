@@ -1,5 +1,5 @@
 const leaderboardDiv = document.getElementById("leaderboard");
-const dataUrl = "https://raw.githubusercontent.com/ninioteam/LifeRPScammerList/refs/heads/main/ScammerData.json";
+const dataUrl = "https://raw.githubusercontent.com/ninioteam/LifeRPScammerList/refs/heads/main/scammer/ScammerData.json";
 
 async function loadData() {
   try {
