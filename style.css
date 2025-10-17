@@ -57,9 +57,9 @@ h1 {
 /* =========================
    Leaderboard Boxes
 ========================= */
-.options {
+.leaderboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 15px;
 }
 
@@ -83,6 +83,30 @@ h1 {
   transform: scale(1.02);
 }
 
+/* Tooltip Styling */
+.entry-box .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #111;
+  color: #00ff99;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 0 8px #00ff77;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.entry-box:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 
 /* Spot / Username / Worth Colors */
 .spot {
@@ -121,12 +145,6 @@ footer {
      color: #00ff99;
      margin-bottom: 20px;
      font-size: 24px;
-   }
-   
-   .options {
-     display: flex;
-     flex-direction: column;
-     gap: 15px;
    }
    
   .entry-box {
