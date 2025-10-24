@@ -27,12 +27,15 @@
 		"ScamDate":"13/10/2025"
 	},
 	{
-		"Usernames":[ "Kam" ],
+		"Usernames":[ "Weon" ],
 		"ChangedUsername":false,
-		"Steam64ID":"Unknown ID",
-		"StuffScammed":[ "1m" ],
-		"AverageWorthInTime":1000000,
-		"Evidence":[ "https://medal.tv/games/unturned/clips/lkH6eCw7stZ4bFnEC?invite=cr-MSxYQ0ssMjAyOTYyMzY2&v=12" ],
-		"ScamDate":"19/10/2025"
+		"Steam64ID":"76561199229189825",
+		"StuffScammed":[ "Mansion They Didn't Even Own" ],
+		"AverageWorthInTime":600000,
+		"Evidence":[ 
+			"https://cdn.discordapp.com/attachments/1428747551070355587/1429145992527089724/image.png?ex=68fc53ac&is=68fb022c&hm=75c9217a231f1194b19e6c5a7dbb78026ac542b073ac2d1a034ac17d75a7cdef&", 
+			"https://medal.tv/games/unturned/clips/lmMuZsre82ZHpEyuK?invite=cr-MSxnU0QsMzk1MTU3OTY5&v=35" 
+		],
+		"ScamDate":"??/9-10/2023"
 	}
 ]
